@@ -1,0 +1,80 @@
+<style>
+    /* Popup and email component styles */
+    .email-popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        z-index: 1000;
+        pointer-events: none;
+    }
+    .email-popup-content {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        padding: 0;
+        max-width: 800px;
+        width: 90vw;
+        position: absolute;
+        font-family: Arial, sans-serif;
+        border: 1px solid #d3d3d3;
+        pointer-events: auto;
+    }
+    .popup-close {
+        position: absolute;
+        top: 20px; right: 24px;
+        font-size: 36px;
+        color: #666;
+        cursor: pointer;
+    }
+    .email-header {
+        background: #ffebee;
+        border-bottom: 1px solid #ffcdd2;
+        padding: 36px 64px 24px 64px;
+        border-radius: 16px 16px 0 0;
+    }
+    .email-subject {
+        font-weight: bold;
+        font-size: 32px;
+        margin-bottom: 12px;
+        color: #c62828;
+    }
+    .email-meta {
+        font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+        font-size: 20px;
+        color: #d32f2f;
+        margin-bottom: 8px;
+    }
+    .email-body {
+        padding: 36px 64px 24px 64px;
+        color: #222;
+        font-size: 24px;
+        line-height: 1.6;
+    }
+    .email-signature {
+        padding: 0 64px 36px 64px;
+        color: #666;
+        font-size: 20px;
+        font-style: italic;
+    }
+    .email-link {
+        color: #d32f2f;
+        text-decoration: underline;
+    }
+</style>
+
+<div class="email-popup-overlay" id="distractionPopup" style="display:none;">
+    <div class="email-popup-content" id="distractionPopupContent">
+        <span class="popup-close" onclick="this.closest('.email-popup-overlay').style.display='none'">&times;</span>
+        <div class="email-header">
+            <div class="email-subject">{{subject}}</div>
+            <div class="email-meta">From: {{from}}</div>
+        </div>
+        <div class="email-body">
+            <p>{{body}}</p>
+        </div>
+        <div class="email-signature">
+            {{signature}}
+        </div>
+    </div>
+</div>
